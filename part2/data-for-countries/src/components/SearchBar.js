@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
 
 
 const SearchBar = ({ countries, showList, setShowList }) => {
@@ -26,13 +27,29 @@ const SearchBar = ({ countries, showList, setShowList }) => {
             <h4>languages</h4>
             <ul>
               {country.languages.map(lang => {
-                return <li key={lang.iso639_1}>{lang.name}</li>
+                return <li key={lang.iso639_2}>{lang.name}</li>
               })}
             </ul>
             <img src={country.flag} alt="flag" width="10%" height="10%"></img>
           </div>
         </div>
       )
+    }
+    const Weather = ({country}) => {
+      const [weather, setWeather] = useState([])
+      useEffect( () => {
+        const key = process.env.REACT_APP_weatherstack_API_KEY
+        var reqUrl = 'http://api.weatherstack.com/current?access_key='+key+'&query='+country.capital
+        axios.get(reqUrl).then(response => {
+          setWeather(response.data.current) // current
+        })
+      }, [])
+      return <div>
+        <h4>Weather in {country.capital}</h4>
+        <b>temperature:</b> {weather.temperature} Celcius <br/>
+        <img src={weather.weather_icons} alt="weather_icons" ></img> <br/>
+        <b>wind:</b> {weather.wind_speed} mph direction {weather.wind_dir} <br/>
+      </div>
     }
     const Hidden = ({country}) => {
       const [isShow, setIsShow] = useState(false)
@@ -63,7 +80,10 @@ const SearchBar = ({ countries, showList, setShowList }) => {
       </div>
     } else {
       // match
-      return <SpecifiedOne country={list[0]} />
+      return <div>
+        <SpecifiedOne country={list[0]} />
+        <Weather country={list[0]}/>
+      </div>
     }
   }
   return (

@@ -8,7 +8,7 @@ const App = () => {
   const [showList, setShowList] = useState([])
 
   const hook = () => {
-    axios.get('https://restcountries.eu/rest/v2/all').then(
+    axios.get('https://restcountries.com/v2/all').then(
       response => {
         setCountries(response.data)
       }
@@ -25,3 +25,5 @@ const App = () => {
 }
 
 export default App
+
+// ($env:REACT_APP_weatherstack_API_KEY = "xx") -and (npm start)
