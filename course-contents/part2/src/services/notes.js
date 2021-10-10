@@ -23,5 +23,12 @@ const update = (id, newObject) => {
 //   create: create, 
 //   update: update 
 // }
+// export default {getAll, create, update} // ES6 
 
-export default {getAll, create, update} // ES6 
+const noteService = {
+  getAll, create, update
+}
+
+export default noteService
+
+

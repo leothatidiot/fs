@@ -40,23 +40,6 @@ const Persons = ({ persons, setPersons }) => {
       </div>
     })}
   </div>
-
-  // return <div>
-  //   {persons.map((p) => {
-  //     if (p.show === true) {
-  //       return <div key={p.name}>
-  //         {p.name} {p.number} {}
-  //         <button onClick={() => {
-  //           if(window.confirm("Delete "+p.name+"?")) {
-  //             personService.deleteId(p.id)}
-  //           }
-  //         }>delete</button>
-  //       </div>
-  //     } else {
-  //       return <div key={p.name}></div>
-  //     }
-  //   })}
-  // </div>
 };
 
 export default Persons
