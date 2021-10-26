@@ -1,0 +1,6 @@
+[submodule "part3"]
+	path = part3
+	url = git@github.com:leothatidiot/part3.git
+[submodule "course-contents/part3"]
+	path = course-contents/part3
+	url = git@github.com:leothatidiot/part3.git
