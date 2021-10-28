@@ -9,12 +9,15 @@ const App = () => {
   const [persons, setPersons] = useState([])
   const [searchName, setSearchName] = useState('')
   const [message, setMessage] = useState(null)
+  const [personsWithShow, setPersonsWithShow] = useState([])
 
   useEffect(() => {
     // 需要运行一个 json-server
     // npx json-server db.json -p 3001 -w
     personService.read().then(response => {
       setPersons(response)
+      // setPersonsWithShow({...response, show1: true})
+      setPersonsWithShow(response.map(elem => {return {...elem, show:true}}))
     })
   }, [])
 
@@ -24,7 +27,8 @@ const App = () => {
 
       <Notification message={message} />
 
-      <Filter persons={persons} setPersons={setPersons} searchName={searchName} setSearchName={setSearchName}/>
+      <Filter persons={personsWithShow} setPersons={setPersonsWithShow} searchName={searchName} setSearchName={setSearchName}/>
+      {/* <Filter persons={persons} personToShow={personToShow} SetPersonToShow={SetPersonToShow} searchName={searchName} setSearchName={setSearchName}/> */}
 
       <h3>Add a new</h3>
 
@@ -32,7 +36,7 @@ const App = () => {
 
       <h3>Numbers</h3>
 
-      <Persons persons={persons} setPersons={setPersons}/>
+      <Persons persons={personsWithShow} setPersons={setPersonsWithShow}/>
     </div>
   )
 }

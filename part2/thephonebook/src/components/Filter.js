@@ -5,11 +5,11 @@ const Filter = ({persons, setPersons, searchName, setSearchName}) => {
     event.preventDefault()
     setSearchName(event.target.value)
     var personsCopy = persons
-    personsCopy.forEach(element => {
-      if (element.name.toLowerCase().match(event.target.value.toLowerCase())) {
-        element.show = true
+    personsCopy.forEach(p => {
+      if (p.name.toLowerCase().match(event.target.value.toLowerCase())) {
+        p.show = true
       } else {
-        element.show = false
+        p.show = false
         console.log('change something to False')
       }
     });

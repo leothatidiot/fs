@@ -3,7 +3,7 @@ import personService from '../services/persons';
 
 const Persons = ({ persons, setPersons }) => {
   console.log(`rendering Persons: ${persons.length}`)
-  // console.log(persons)
+  console.log('persons:', persons)
   // const[personToShow, SetPersonToShow] = useState([])
   var personToShow = []
 
@@ -14,7 +14,7 @@ const Persons = ({ persons, setPersons }) => {
     }
   })
 
-  // console.log(personToShow)
+  console.log('personToShow:', personToShow)
   
   const clickDelete = (p) => {
     return () => {
