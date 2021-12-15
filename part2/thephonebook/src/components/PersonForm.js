@@ -12,7 +12,11 @@ const PersonForm = ({persons, setPersons, setMessage}) => {
   }
   const submitNewPerson = (event) => {
     event.preventDefault()
-    if(JSON.stringify(persons).indexOf(newName) !== -1) { // https://www.cnblogs.com/leiting/p/9253461.html
+    var names = []
+    persons.forEach(element => {
+      names.concat(element.name)
+    });
+    if(names.includes(newName)) {
       // window.alert(`${newName} is already added to phonebook`)
       if(window.confirm(`${newName} is already added to phonebook,replace the old number with a new one?`)) {
         var id
