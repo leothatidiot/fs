@@ -38,8 +38,15 @@ const PersonForm = ({persons, setPersons, setMessage}) => {
     } else {
       const newPerson = { id:persons.length+1, name: newName, number: newNum, show: true }
       setPersons(persons.concat(newPerson))
-      personService.create(newPerson)
-      setMessage(`Added ${newName}.`)
+      personService
+        .create(newPerson)
+        .then(createdPerson => {
+          setMessage(`Added ${newName}.`)
+        })
+        .catch(error => {
+          setMessage(`${error.response.data.error}`)
+          console.log(error.response.data)
+        })
     }
   }
   return (

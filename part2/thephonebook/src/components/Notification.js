@@ -13,8 +13,9 @@ const Notification = ({ message }) => {
     marginBottom: 10
   }
 
-  if(message.startsWith('Information')) {
+  if(message.startsWith('Information') || message.startsWith('Person')) {
     // Information of X has already been removed from server.
+    // Person validation failed
     style.color = 'red'
   }
 
