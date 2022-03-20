@@ -10,6 +10,8 @@ const App = () => {
   const [searchName, setSearchName] = useState('')
   const [message, setMessage] = useState(null)
   const [personsWithShow, setPersonsWithShow] = useState([])
+  const [newName, setNewName] = useState('')
+  const [newNum, setNewNum] = useState('')
 
   useEffect(() => {
     // 需要运行一个 json-server
@@ -32,7 +34,7 @@ const App = () => {
 
       <h3>Add a new</h3>
 
-      <PersonForm persons={persons} setPersons={setPersons} setMessage={setMessage}/>
+      <PersonForm persons={persons} setPersons={setPersons} setMessage={setMessage} newName={newName} setNewName={setNewName} newNum={newNum} setNewNum={setNewNum}/>
 
       <h3>Numbers</h3>
 

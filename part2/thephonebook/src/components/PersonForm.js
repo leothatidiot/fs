@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import personService from '../services/persons'
 
-const PersonForm = ({persons, setPersons, setMessage}) => {
-  const [newName, setNewName] = useState('')
-  const [newNum, setNewNum] = useState('')
+const PersonForm = ({persons, setPersons, setMessage, newName, setNewName, newNum, setNewNum}) => {
+  
   function handleNameChange(event) {
     setNewName(event.target.value)
   }
@@ -12,11 +11,11 @@ const PersonForm = ({persons, setPersons, setMessage}) => {
   }
   const submitNewPerson = (event) => {
     event.preventDefault()
-    var names = []
+    var existedNames = []
     persons.forEach(element => {
-      names.concat(element.name)
+      existedNames.concat(element.name)
     });
-    if(names.includes(newName)) {
+    if(existedNames.includes(newName)) {
       // window.alert(`${newName} is already added to phonebook`)
       if(window.confirm(`${newName} is already added to phonebook,replace the old number with a new one?`)) {
         var id
@@ -48,6 +47,8 @@ const PersonForm = ({persons, setPersons, setMessage}) => {
           console.log(error.response.data)
         })
     }
+    setNewName('')
+    setNewNum('')
   }
   return (
     <form onSubmit={submitNewPerson}>
