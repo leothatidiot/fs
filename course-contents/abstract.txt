@@ -1,0 +1,63 @@
+
+part2/a
+console.log
+Reactjs code snippets 工具
+JavaScript Arrays 函数式编程
+Map
+Anti-pattern
+
+part2/b
+useState
+filter
+
+part2/c
+promise
+开发工具 json-server
+JavaScript 引擎（运行时环境） 的 异步模型（asynchronous model） ??
+基于 promise 的 fetch 函数
+npm(Node Package Manager) 和 axios
+promise: an object representing the eventual completion or failure of an asynchronous operation
+Effect-hook
+结构
+
+part2/d
+RESTful
+axios POST
+提取与后端通信的部分
+promise chain
+
+
+
+part3/a
+npm dependency
+SemVer
+express
+nodemon // 更改后自动重新加载
+postman
+middleware
+
+part3/b
+跨域资源共享
+heroku
+git submoudle
+生产构建 build
+开发环境的端口、构建后的最终结构
+script流程化前端部署 // ?
+相对URL、前端的开发模式下代理
+
+part3/c
+调试
+MongoDB
+Schema
+JS特性 ...在...操作启动后立即执行 应该用回调函数避免
+后端连接到数据库
+  修改Schema 的 toJSON 方法
+Database into module
+  dotenv // 高效使用环境变量
+...
+Error handling
+将错误处理移入中间件 error=>next(error)
+中间件顺序
+
+part3/d
+使用 ESLint
