@@ -70,3 +70,6 @@ part4/a
     Router 对象
   introduction_to_testing, unit_test
     jest
+	  各种类型的 expect
+      expect().toBe()  
+	  expect().toEqual()
