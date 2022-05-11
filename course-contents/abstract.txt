@@ -73,3 +73,10 @@ part4/a
 	  各种类型的 expect
       expect().toBe()  
 	  expect().toEqual()
+
+part4/b testing_the_backend
+  test-environment
+    different NODE_ENV in production / development / test mode
+    在 Windows 需要 cross-env
+    Test execution in particular typically requires that a single database instance is not used by tests that are running concurrently.
+    
