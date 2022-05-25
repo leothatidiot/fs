@@ -79,4 +79,7 @@ part4/b testing_the_backend
     different NODE_ENV in production / development / test mode
     在 Windows 需要 cross-env
     Test execution in particular typically requires that a single database instance is not used by tests that are running concurrently.
-    
+  Initializing database before tests
+  run tests 1 by 1
+  async / await & change fetching in the backend
+  
