@@ -82,4 +82,6 @@ part4/b testing_the_backend
   Initializing database before tests
   run tests 1 by 1
   async / await & change fetching in the backend
-  
+  使用了 async/await 语法则需要用 try-catch，可用 express-async-errors 消除之
+  JS 的异步本质
+    Promise.all()
