@@ -86,3 +86,16 @@ part4/b testing_the_backend
   JS 的异步本质
     Promise.all()
   Refactoring tests
+  学到经验：后端response只能有一个出口，不可能有【respond 204 之后，还有可能 respond 200】这种情况
+
+part4/c user_administration
+  document database vs. relational database
+  Test-driven development
+  增加一个 /api/users 路由，及其测试
+  password storing
+    bcrypt, salt
+  经验： app.js 和 handler(./controllers/users) 内的路由不一样！ https://stackoverflow.com/a/71815540/15855497
+  扩展查询结果 User.find({}).populate('notes', { contents: 1, date:1 })
+  关系型数据库的交易性（transactional），即像交易一样，数据库的状态在查询期间不会改变
+  而 Mongoose 的连接查询中，没有任何东西可以保证被连接的集合（collection）之间的状态是一致的
+  这意味着如果做一个连接 Users 和 Notes 集合的查询，集合的状态可能在查询过程中发生变化。
