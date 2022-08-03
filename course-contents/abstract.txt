@@ -86,3 +86,11 @@ part4/b testing_the_backend
   JS 的异步本质
     Promise.all()
   Refactoring tests
+  学到经验：后端response只能有一个出口，不可能有【respond 204 之后，还有可能 respond 200】这种情况
+
+part4/c user_administration
+  document database vs. relational database
+  Test-driven development
+  增加一个 /api/users 路由，及其测试
+  经验： app.js 和 handler(./controllers/users) 内的路由不一样！ https://stackoverflow.com/a/71815540/15855497
+
