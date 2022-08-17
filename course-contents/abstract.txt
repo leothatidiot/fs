@@ -99,3 +99,30 @@ part4/c user_administration
   关系型数据库的交易性（transactional），即像交易一样，数据库的状态在查询期间不会改变
   而 Mongoose 的连接查询中，没有任何东西可以保证被连接的集合（collection）之间的状态是一致的
   这意味着如果做一个连接 Users 和 Notes 集合的查询，集合的状态可能在查询过程中发生变化。
+
+part4/d
+  token based authentication
+  bcrypt.hash() & bcrypt.compare()
+  jwt(JSON Web Tokens)
+    jwt.sign() & jwt.verify()
+    env SECRET
+    HTTP header Authorization
+      authentication schemes
+  Error handling
+    JsonWebTokenError handled in errorHandler middleware
+    If the application has multiple interfaces requiring identification, 
+    JWT's validation should be separated into its own middleware. (express-jwt)
+  Problems of Token-based authentication
+    revoked access rights (for safety)
+      1. expiration of token validity
+        token could expire in perid of time
+      2. server side session
+        token saved in backend database (revoke access rights at any time)
+        increased complexity in the backend
+        decreaded performance
+          token validity needs to be checked for each API request from database. 
+          database access is considerably slower compared to checking the validity 
+          from the token itself.
+            save the "session corresponding" to a token to a key-value-database
+            Redis
+    Authorization-header vs. cookies
